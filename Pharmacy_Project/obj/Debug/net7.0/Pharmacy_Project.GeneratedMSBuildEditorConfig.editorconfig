@@ -56,8 +56,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Disease/ShowTable.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzZWFzZVxTaG93VGFibGUuY3NodG1s
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Disease/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzZWFzZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Disease/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzZWFzZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Disease/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzZWFzZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Disease/DiseaseAvailability.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzZWFzZVxEaXNlYXNlQXZhaWxhYmlsaXR5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Disease/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzZWFzZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Disease/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzZWFzZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Home/Index.cshtml]
@@ -68,20 +88,108 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Incoming/ShowTable.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jb21pbmdcU2hvd1RhYmxlLmNzaHRtbA==
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Incoming/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jb21pbmdcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Medicine/ShowTable.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNpbmVcU2hvd1RhYmxlLmNzaHRtbA==
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Incoming/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jb21pbmdcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Outgoing/ShowTable.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3V0Z29pbmdcU2hvd1RhYmxlLmNzaHRtbA==
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Incoming/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jb21pbmdcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Producer/ShowTable.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJcU2hvd1RhYmxlLmNzaHRtbA==
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Incoming/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jb21pbmdcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Incoming/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jb21pbmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Medicine/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNpbmVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Medicine/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNpbmVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Medicine/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNpbmVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Medicine/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNpbmVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Medicine/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNpbmVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Medicine/MedicineAvailability.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNpbmVcTWVkaWNpbmVBdmFpbGFiaWxpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Outgoing/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3V0Z29pbmdcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Outgoing/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3V0Z29pbmdcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Outgoing/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3V0Z29pbmdcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Outgoing/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3V0Z29pbmdcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Outgoing/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3V0Z29pbmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Outgoing/OutgoingAvailability.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3V0Z29pbmdcT3V0Z29pbmdBdmFpbGFiaWxpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Producer/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Producer/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Producer/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Producer/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Producer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Roles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Roles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Roles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Roles/UserList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcVXNlckxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vadim/OneDrive/Рабочий стол/Pharmacy_Project/Pharmacy_Project/Views/Shared/Error.cshtml]

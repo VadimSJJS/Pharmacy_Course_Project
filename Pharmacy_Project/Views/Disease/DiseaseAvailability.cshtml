@@ -1,0 +1,29 @@
+﻿@model List<MedicinesForDisease>
+
+<h2>Список лекарств определенной болезни</h2>
+
+<form method="get" action="@Url.Action("DiseaseAvailability", "Disease")">
+    <div class="form-group">
+        <label for="selectedText">Введите название болезни:</label>
+        <input type="text" id="selectedText" name="selectedText" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Показать наличие</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Название лекарства</th>
+            <th>Название болезни</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var diseaseAvailability in Model)
+        {
+            <tr>
+                <td>@diseaseAvailability.Midicine.Name</td>
+                <td>@diseaseAvailability.Disease.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

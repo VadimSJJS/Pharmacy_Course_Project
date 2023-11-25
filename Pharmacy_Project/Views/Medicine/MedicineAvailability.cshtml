@@ -1,0 +1,31 @@
+﻿@model Pharmacy_Project.ViewModels.MedicinesViewModel
+
+<h2>Наличие лекарств на дату</h2>
+
+<form method="post" action="@Url.Action("MedicineAvailability", "Medicine")">
+    <div class="form-group">
+        <label for="selectedDate">Выберите дату:</label>
+        <input asp-for="@Model.date" name="date" type="date" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Показать наличие</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Идентификатор</th>
+            <th>Название</th>
+            <th>Количество на выбранную дату</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var medicineAvailability in Model.Medicines)
+        {
+            <tr>
+                <td>@medicineAvailability.Id</td>
+                <td>@medicineAvailability.Name</td>
+                <td>@medicineAvailability.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>

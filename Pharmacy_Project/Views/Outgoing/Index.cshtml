@@ -1,0 +1,87 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> UserManager
+
+
+@model Pharmacy_Project.ViewModels.OutgoingsViewModel;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Расход</h1>
+
+<h2>Проданные лекарства на указанный период времени</h2>
+
+<form method="get" action="@Url.Action("OutgoingAvailability", "Outgoing")">
+    <div class="form-group">
+        <label for="date">Выберите начальную дату:</label>
+        <input type="date" id="selectedDateStart" name="selectedDateStart" class="form-control" />
+        <label for="date">Выберите конечную дату:</label>
+        <input type="date" id="selectedDateEnd" name="selectedDateEnd" class="form-control" />
+
+    </div>
+    <button type="submit" class="btn btn-primary">Показать наличие</button>
+</form>
+
+@if (User.IsInRole("admin"))
+{
+    <p>
+        <a asp-action="Create">Создать новый расход</a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Дата реализации
+            </th>
+            <th>
+                Количество
+            </th>
+            <th>
+                Цена продажи
+            </th>
+            <th>
+                Название лекарства
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Outgoings) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImplementationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellingPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImplementationDate)
+            </td>
+                @if (User.IsInRole("admin"))
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a>
+                    </td>
+                    
+                }
+            
+        </tr>
+}
+    </tbody>
+</table>
+<page-link page-model="Model.Page" page-action="Index"></page-link>

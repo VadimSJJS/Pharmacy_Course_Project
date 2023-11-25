@@ -25,8 +25,13 @@ internal class Program
                 });
         });
         builder.Services.AddSession();
-        builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<PharmacyContext>();
-
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                        options.UseSqlServer(connectionString));
+        builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+        builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            .AddRoles<IdentityRole>()
+            .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultUI()
+                .AddDefaultTokenProviders();
         var app = builder.Build();
 
         if (!app.Environment.IsDevelopment())
@@ -51,27 +56,27 @@ internal class Program
 
         app.MapControllerRoute(
             name: "medicine",
-            pattern: "{controller=Medicine}/{action=ShowTable}");
+            pattern: "{controller=Medicine}/{action=Index}");
 
 
         app.MapControllerRoute(
             name: "outgoing",
-            pattern: "{controller=Outgoing}/{action=ShowTable}");
+            pattern: "{controller=Outgoing}/{action=Index}");
 
         
         app.MapControllerRoute(
             name: "producer",
-            pattern: "{controller=Producer}/{action=ShowTable}");
+            pattern: "{controller=Producer}/{action=Index}");
         
         app.MapControllerRoute(
             name: "disease",
-            pattern: "{controller=Disease}/{action=ShowTable}");
+            pattern: "{controller=Disease}/{action=Index}");
         
         app.MapControllerRoute(
             name: "incoming",
-            pattern: "{controller=Incoming}/{action=ShowTable}");
-        app.Run();
+            pattern: "{controller=Incoming}/{action=Index}");
 
+        app.Run();
     }
 }
 

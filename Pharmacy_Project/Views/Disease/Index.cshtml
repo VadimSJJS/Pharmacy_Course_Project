@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using X.PagedList.Mvc.Core;
+@using Pharmacy_Project.ViewModels;
+@model Pharmacy_Project.ViewModels.DiseasesViewModel;
+
+@inject UserManager<IdentityUser> UserManager
+
+
+<h1>Болезни</h1>
+
+<h2>Наличие лекарств на дату</h2>
+
+<form method="get" action="@Url.Action("DiseaseAvailability", "Disease")">
+    <div class="form-group">
+        <label for="selectedText">Введите название болезни:</label>
+        <input type="text" id="selectedText" name="diseaseName" class="form-control" />
+    </div>
+    <input type="submit" class="btn btn-primary">Показать наличие</input>
+</form>
+@if (User.IsInRole("admin"))
+{
+    <p>
+        <a asp-action="Create">Создать новую болезнь</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Международный код
+            </th>
+            <th>
+                Название
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Diseases) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InternationalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            @if (User.IsInRole("admin"))
+            {
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+            }
+                else
+                {
+                    <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a>
+                    </td>
+                }
+            </tr>
+}
+    </tbody>
+</table>
+<page-link page-model="Model.Page" page-action="Index"></page-link>
