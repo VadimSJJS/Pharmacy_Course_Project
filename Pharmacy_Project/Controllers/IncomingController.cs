@@ -64,7 +64,7 @@ namespace Pharmacy_Project.Controllers
         // GET: Incoming/Create
         public IActionResult Create()
         {
-            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Id");
+            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Name");
             return View();
         }
 
@@ -81,7 +81,7 @@ namespace Pharmacy_Project.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Id", incoming.MedicineId);
+            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Name", incoming.MedicineId);
             return View(incoming);
         }
 
@@ -98,7 +98,7 @@ namespace Pharmacy_Project.Controllers
             {
                 return NotFound();
             }
-            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Id", incoming.MedicineId);
+            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Name", incoming.MedicineId);
             return View(incoming);
         }
 

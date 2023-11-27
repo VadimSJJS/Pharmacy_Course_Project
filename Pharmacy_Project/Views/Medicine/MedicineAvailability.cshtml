@@ -13,16 +13,18 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Идентификатор</th>
             <th>Название</th>
-            <th>Количество на выбранную дату</th>
+            <th>
+                <a asp-action="MedicineAvailability" asp-route-sortOrder=@Model.SortViewModel.MedicineSort asp-route-MedicineSort="@Model.SortViewModel.MedicineSort">
+                    Количество на выбранную дату
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var medicineAvailability in Model.Medicines)
         {
             <tr>
-                <td>@medicineAvailability.Id</td>
                 <td>@medicineAvailability.Name</td>
                 <td>@medicineAvailability.Count</td>
             </tr>

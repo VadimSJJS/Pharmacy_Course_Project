@@ -19,7 +19,7 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ShortDescription" class="control-label">Краткое описание</label>
+                <label asp-for="ShortDescription" class="control-label">Описание</label>
                 <input asp-for="ShortDescription" class="form-control" />
                 <span asp-validation-for="ShortDescription" class="text-danger"></span>
             </div>
@@ -27,10 +27,6 @@
                 <label asp-for="ActiveSubstance" class="control-label">Активное вещество</label>
                 <input asp-for="ActiveSubstance" class="form-control" />
                 <span asp-validation-for="ActiveSubstance" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProducerId" class="control-label">Производитель</label>
-                <select asp-for="ProducerId" class ="form-control" asp-items="ViewBag.ProducerId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="UnitMeasurement" class="control-label">Единица измерения</label>
@@ -48,7 +44,11 @@
                 <span asp-validation-for="StorageLocation" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="ProducerId" class="control-label">Производитель</label>
+                <select asp-for="ProducerId" class="form-control" asp-items="ViewBag.ProducerId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
             </div>
         </form>
     </div>

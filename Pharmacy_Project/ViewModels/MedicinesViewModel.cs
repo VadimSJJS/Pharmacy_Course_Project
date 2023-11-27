@@ -12,5 +12,7 @@ namespace Pharmacy_Project.ViewModels
         public PageViewModel Page { get; set; }
 
         public DateTime? date { get; set; }
+        public int Count { get; set; }
+        public SortViewModel SortViewModel { get; set; }
     }
 }

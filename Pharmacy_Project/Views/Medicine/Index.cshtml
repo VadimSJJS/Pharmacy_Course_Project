@@ -41,7 +41,9 @@
                 Единица измерения
             </th>
             <th>
-                Количество
+                <a asp-action="Index" asp-route-sortOrder=@Model.SortViewModel.MedicineSort>
+                    Количество
+                </a>
             </th>
             <th>
                 Хранилище

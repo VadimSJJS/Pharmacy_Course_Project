@@ -15,49 +15,49 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">Название</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ShortDescription" class="control-label"></label>
+                <label asp-for="ShortDescription" class="control-label">Описание</label>
                 <input asp-for="ShortDescription" class="form-control" />
                 <span asp-validation-for="ShortDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ActiveSubstance" class="control-label"></label>
+                <label asp-for="ActiveSubstance" class="control-label">Вещество</label>
                 <input asp-for="ActiveSubstance" class="form-control" />
                 <span asp-validation-for="ActiveSubstance" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ProducerId" class="control-label"></label>
-                <select asp-for="ProducerId" class="form-control" asp-items="ViewBag.ProducerId"></select>
-                <span asp-validation-for="ProducerId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UnitMeasurement" class="control-label"></label>
+           <div class="form-group">
+                <label asp-for="UnitMeasurement" class="control-label">Единица измерения</label>
                 <input asp-for="UnitMeasurement" class="form-control" />
                 <span asp-validation-for="UnitMeasurement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Count" class="control-label"></label>
+                <label asp-for="Count" class="control-label">Количество</label>
                 <input asp-for="Count" class="form-control" />
                 <span asp-validation-for="Count" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StorageLocation" class="control-label"></label>
+                <label asp-for="StorageLocation" class="control-label">Хранилище</label>
                 <input asp-for="StorageLocation" class="form-control" />
                 <span asp-validation-for="StorageLocation" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label asp-for="ProducerId" class="control-label">Производитель</label>
+                <select asp-for="ProducerId" class="form-control" asp-items="ViewBag.ProducerId"></select>
+                <span asp-validation-for="ProducerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад на страницу</a>
 </div>
 
 @section Scripts {

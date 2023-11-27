@@ -63,7 +63,7 @@ namespace Pharmacy_Project.Controllers
         // GET: Outgoing/Create
         public IActionResult Create()
         {
-            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Id");
+            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Name");
             return View();
         }
 
@@ -80,7 +80,7 @@ namespace Pharmacy_Project.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Id", outgoing.MedicineId);
+            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Name", outgoing.MedicineId);
             return View(outgoing);
         }
 
@@ -97,7 +97,7 @@ namespace Pharmacy_Project.Controllers
             {
                 return NotFound();
             }
-            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Id", outgoing.MedicineId);
+            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Name", outgoing.MedicineId);
             return View(outgoing);
         }
 
@@ -133,7 +133,7 @@ namespace Pharmacy_Project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Id", outgoing.MedicineId);
+            ViewData["MedicineId"] = new SelectList(_context.Medicines, "Id", "Name", outgoing.MedicineId);
             return View(outgoing);
         }
 
@@ -170,14 +170,14 @@ namespace Pharmacy_Project.Controllers
             {
                 _context.Outgoings.Remove(outgoing);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OutgoingExists(int id)
         {
-          return (_context.Outgoings?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Outgoings?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
         public IActionResult OutgoingAvailability(DateTime? selectedDateStart, DateTime? selectedDateEnd)

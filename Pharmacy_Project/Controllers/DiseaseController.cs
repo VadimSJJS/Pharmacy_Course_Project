@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PagedList;
+using Pharmacy_Project.Infrastructure;
 using Pharmacy_Project.Models;
 using Pharmacy_Project.ViewModel;
 using Pharmacy_Project.ViewModels;
@@ -40,20 +41,36 @@ namespace Pharmacy_Project.Controllers
         public async Task<IActionResult> Index(int page = 1)
         {
             DiseasesViewModel diseasesModel;
+            var disease = HttpContext.Session.Get<DiseasesViewModel>("Disease");
+            if (disease == null)
+            {
+                disease = new DiseasesViewModel();
+            }
+
             IQueryable<Disease> pharmacyContext = _context.Diseases;
+            pharmacyContext = DiseaseAvailability(pharmacyContext, disease.DiseaseName);
+
             var count = pharmacyContext.Count();
             pharmacyContext = pharmacyContext.Skip((page - 1) * pageSize).Take(pageSize);
 
             diseasesModel = new DiseasesViewModel
             {
                 Diseases = pharmacyContext,
-                Page = new PageViewModel(count, page, pageSize)
-
+                Page = new PageViewModel(count, page, pageSize),
+                DiseaseName = disease.DiseaseName
             };
+
             return View(diseasesModel);
         }
 
+        [HttpPost]
+        public IActionResult Index(DiseasesViewModel disease)
+        {
 
+            HttpContext.Session.Set("Disease", disease);
+
+            return RedirectToAction("Index");
+        }
 
         // GET: Disease/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -188,15 +205,12 @@ namespace Pharmacy_Project.Controllers
           return (_context.Diseases?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
-        public IActionResult DiseaseAvailability(string diseaseName)
+        public IQueryable<Disease> DiseaseAvailability(IQueryable<Disease> diseases,string diseaseName)
         {
-            var medicines = _context.MedicinesForDiseases
-                .Include(m => m.Disease)
-                .Include(m => m.Midicine)
-                .Where(e => e.Disease.Name.Contains(diseaseName))
-                .ToList(); 
+            diseases = diseases
+                .Where(e => e.Name.Contains(diseaseName ?? "")); 
 
-            return View("DiseaseAvailability", medicines);
+            return diseases;
         }
     }
 }

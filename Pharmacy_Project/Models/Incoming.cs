@@ -19,5 +19,5 @@ public partial class Incoming
 
     public decimal Price { get; set; }
 
-    public virtual Medicine Medicine { get; set; } = null!;
+    public virtual Medicine? Medicine { get; set; }
 }

@@ -10,10 +10,10 @@
 
 <h2>Наличие лекарств на дату</h2>
 
-<form method="get" action="@Url.Action("DiseaseAvailability", "Disease")">
+<form method="post" action="@Url.Action("Index", "Disease")">
     <div class="form-group">
         <label for="selectedText">Введите название болезни:</label>
-        <input type="text" id="selectedText" name="diseaseName" class="form-control" />
+        <input asp-for="@Model.DiseaseName" name="DiseaseName" type="text" class="form-control" />
     </div>
     <input type="submit" class="btn btn-primary">Показать наличие</input>
 </form>

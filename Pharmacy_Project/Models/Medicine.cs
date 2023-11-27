@@ -29,5 +29,5 @@ public partial class Medicine
 
     public virtual ICollection<Outgoing> Outgoings { get; set; } = new List<Outgoing>();
 
-    public virtual Producer Producer { get; set; } = null!;
+    public virtual Producer? Producer { get; set; } 
 }

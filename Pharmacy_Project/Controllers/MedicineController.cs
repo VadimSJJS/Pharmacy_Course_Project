@@ -26,7 +26,7 @@ namespace Pharmacy_Project.Controllers
         }
 
         // GET: Medicine
-        public async Task<IActionResult> Index(int page = 1)
+        public async Task<IActionResult> Index(SortState sortOrder, int page = 1)
         {
             var medicine = HttpContext.Session.Get<MedicinesViewModel>("Medicine");
             if(medicine == null)
@@ -35,18 +35,21 @@ namespace Pharmacy_Project.Controllers
             }
             MedicinesViewModel medicinesModel;
             IQueryable<Medicine> pharmacyContext = _context.Medicines.Include(m => m.Producer);
+            pharmacyContext = MedicineSort(pharmacyContext, sortOrder);
             var count = pharmacyContext.Count();
             pharmacyContext = pharmacyContext.Skip((page - 1) * pageSize).Take(pageSize);
 
             medicinesModel = new MedicinesViewModel
             {
                 Medicines = pharmacyContext,
+                SortViewModel = new SortViewModel(sortOrder),
+
                 Page = new PageViewModel(count, page, pageSize),
                 date = medicine.date
             };
             return View(medicinesModel);
         }
-        public async Task<IActionResult> MedicineAvailability(int page = 1)
+        public async Task<IActionResult> MedicineAvailability(SortState sortOrder, int page = 1)
         {
             var medicine = HttpContext.Session.Get<MedicinesViewModel>("Medicine");
             if (medicine == null)
@@ -55,13 +58,14 @@ namespace Pharmacy_Project.Controllers
             }
             MedicinesViewModel medicinesModel;
             IQueryable<Medicine> pharmacyContext = _context.Medicines.Include(m => m.Producer);
-            pharmacyContext = MedicineSearch(pharmacyContext, medicine.date);
+            pharmacyContext = MedicineSearch(pharmacyContext, sortOrder, medicine.date);
             var count = pharmacyContext.Count();
             pharmacyContext = pharmacyContext.Skip((page - 1) * pageSize).Take(pageSize);
 
             medicinesModel = new MedicinesViewModel
             {
                 Medicines = pharmacyContext,
+                SortViewModel = new SortViewModel(sortOrder),
                 Page = new PageViewModel(count, page, pageSize),
                 date = medicine.date
             };
@@ -106,7 +110,7 @@ namespace Pharmacy_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ShortDescription,ActiveSubstance,ProducerId,UnitMeasurement,Count,StorageLocation")] Medicine medicine)
+        public async Task<IActionResult> Create([Bind("Id,Name,ShortDescription,ActiveSubstance,UnitMeasurement,Count,StorageLocation,ProducerId")] Medicine medicine)
         {
             if (ModelState.IsValid)
             {
@@ -140,7 +144,7 @@ namespace Pharmacy_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ShortDescription,ActiveSubstance,ProducerId,UnitMeasurement,Count,StorageLocation")] Medicine medicine)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ShortDescription,ActiveSubstance,UnitMeasurement,Count,StorageLocation,ProducerId")] Medicine medicine)
         {
             if (id != medicine.Id)
             {
@@ -214,8 +218,17 @@ namespace Pharmacy_Project.Controllers
           return (_context.Medicines?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
-        public IQueryable<Medicine> MedicineSearch(IQueryable<Medicine> medicineAvailability, DateTime? selectedDate)
+        public IQueryable<Medicine> MedicineSearch(IQueryable<Medicine> medicineAvailability, SortState sortOrder, DateTime? selectedDate)
         {
+            switch (sortOrder)
+            {
+                case SortState.CountAsc:
+                    medicineAvailability = medicineAvailability.OrderBy(s => s.Count);
+                    break;
+                case SortState.CountDesc:
+                    medicineAvailability = medicineAvailability.OrderByDescending(s => s.Count);
+                    break;
+            }
             // Если дата не указана, используем текущую дату
             DateTime currentDate = selectedDate ?? new DateTime();
 
@@ -233,6 +246,18 @@ namespace Pharmacy_Project.Controllers
 
             return medicineAvailability;
         }
-
+        public IQueryable<Medicine> MedicineSort(IQueryable<Medicine> medicineAvailability, SortState sortOrder)
+        {
+            switch (sortOrder)
+            {
+                case SortState.CountAsc:
+                    medicineAvailability = medicineAvailability.OrderBy(s => s.Count);
+                    break;
+                case SortState.CountDesc:
+                    medicineAvailability = medicineAvailability.OrderByDescending(s => s.Count);
+                    break;
+            }
+            return medicineAvailability;
+        }
     }
 }

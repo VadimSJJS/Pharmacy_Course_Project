@@ -10,5 +10,7 @@ namespace Pharmacy_Project.ViewModels
 
         //Свойство для навигации по страницам
         public PageViewModel Page { get; set; }
+
+        public string DiseaseName { get; set; }
     }
 }

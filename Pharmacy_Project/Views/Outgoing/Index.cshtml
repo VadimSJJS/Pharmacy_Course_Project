@@ -13,12 +13,12 @@
 
 <h2>Проданные лекарства на указанный период времени</h2>
 
-<form method="get" action="@Url.Action("OutgoingAvailability", "Outgoing")">
+<form method="post" action="@Url.Action("Index", "Outgoing")">
     <div class="form-group">
         <label for="date">Выберите начальную дату:</label>
-        <input type="date" id="selectedDateStart" name="selectedDateStart" class="form-control" />
+        <input asp-for="@Model.DateStart" name="DateStart" type="date" class="form-control" />
         <label for="date">Выберите конечную дату:</label>
-        <input type="date" id="selectedDateEnd" name="selectedDateEnd" class="form-control" />
+        <input asp-for="@Model.DateEnd" name="DateEnd" type="date" class="form-control" />
 
     </div>
     <button type="submit" class="btn btn-primary">Показать наличие</button>
@@ -62,7 +62,7 @@
                 @Html.DisplayFor(modelItem => item.SellingPrice)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImplementationDate)
+                @Html.DisplayFor(modelItem => item.Medicine.Name)
             </td>
                 @if (User.IsInRole("admin"))
                 {
