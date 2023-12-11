@@ -2,7 +2,7 @@
 
 <h2>Наличие лекарств на дату</h2>
 
-<form method="get" action="@Url.Action("OutgoingAvailability", "Outgoing")">
+<form method="post" action="@Url.Action("OutgoingAvailability", "Outgoing")">
     <div class="form-group">
         <label for="selectedDate">Выберите дату:</label>
         <input type="date" id="selectedDateStart" name="selectedDateStart" class="form-control" />

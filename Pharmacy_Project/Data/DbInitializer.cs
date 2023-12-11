@@ -223,7 +223,7 @@ namespace Pharmacy_Project.Data
             // таблица Producer
             if (!db.Producers.Any())
             {
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     string NameProducer = NameProducers[random.Next(0, NameProducers.Count)];
                     string Country = Countries[random.Next(0, Countries.Count)];
@@ -235,7 +235,7 @@ namespace Pharmacy_Project.Data
             // таблица Disease
             if (!db.Diseases.Any())
             {
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     int InternatinalCode = InternationalCodes[random.Next(0, InternationalCodes.Count)];
                     string Name = NameDiseases[random.Next(0, NameDiseases.Count)];
@@ -247,7 +247,7 @@ namespace Pharmacy_Project.Data
             // таблица Medicine
             if (!db.Medicines.Any())
             {
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     string Name = Names[random.Next(0, Names.Count)];
                     string ShortDecsription = ShortDecsriptions[random.Next(0, ShortDecsriptions.Count)];
@@ -265,7 +265,7 @@ namespace Pharmacy_Project.Data
             // таблица MedicinesForDiseases
             if (!db.MedicinesForDiseases.Any())
             {
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     int MedicineId = random.Next(1, 21);
                     int DiseaseId = random.Next(1, 21);
@@ -278,7 +278,7 @@ namespace Pharmacy_Project.Data
             // таблица Outgoing
             if (!db.Outgoings.Any())
             {
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     int MedicineId = random.Next(1, 21);
                     DateTime ImplemetionDate = DateTime.Now.AddYears(-random.Next(0, 100));
@@ -292,7 +292,7 @@ namespace Pharmacy_Project.Data
             // таблица Incoming
             if (!db.Incomings.Any())
             {
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     int MedicineId = random.Next(1, 21);
                     DateTime ArrivalDate = DateTime.Now.AddYears(-random.Next(0, 100));

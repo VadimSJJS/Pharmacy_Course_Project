@@ -50,20 +50,21 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Outgoings) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImplementationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Count)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SellingPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Medicine.Name)
-            </td>
+        @foreach (var item in Model.Outgoings)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImplementationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Count)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SellingPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Medicine.Name)
+                </td>
                 @if (User.IsInRole("admin"))
                 {
                     <td>
@@ -77,11 +78,11 @@
                     <td>
                         <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a>
                     </td>
-                    
+
                 }
-            
-        </tr>
-}
+
+            </tr>
+        }
     </tbody>
 </table>
 <page-link page-model="Model.Page" page-action="Index"></page-link>

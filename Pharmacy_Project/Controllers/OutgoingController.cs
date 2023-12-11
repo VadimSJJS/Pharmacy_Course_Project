@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Pharmacy_Project.Infrastructure;
 using Pharmacy_Project.Models;
 using Pharmacy_Project.ViewModel;
 using Pharmacy_Project.ViewModels;
@@ -26,21 +27,29 @@ namespace Pharmacy_Project.Controllers
         // GET: Outgoing
         public async Task<IActionResult> Index(int page = 1)
         {
-            OutgoingsViewModel outgoingsModel;
+            OutgoingsViewModel outgoingsModel = HttpContext.Session.Get<OutgoingsViewModel>("Outgoing");
+            if (outgoingsModel == null)
+                outgoingsModel = new OutgoingsViewModel();
             IQueryable<Outgoing> pharmacyContext = _context.Outgoings.Include(o => o.Medicine);
-
+            pharmacyContext = OutgoingAvailability(pharmacyContext, outgoingsModel.DateStart, outgoingsModel.DateEnd);
             var count = pharmacyContext.Count();
             pharmacyContext = pharmacyContext.Skip((page - 1) * pageSize).Take(pageSize);
 
             outgoingsModel = new OutgoingsViewModel
             {
                 Outgoings = pharmacyContext,
-                Page = new PageViewModel(count, page, pageSize)
-
+                Page = new PageViewModel(count, page, pageSize),
+                DateStart = outgoingsModel.DateStart,
+                DateEnd = outgoingsModel.DateEnd
             };
             return View(outgoingsModel);
         }
-
+        [HttpPost]
+        public async Task<IActionResult> Index(OutgoingsViewModel outgoingsViewModel)
+        {
+            HttpContext.Session.Set("Outgoing", outgoingsViewModel);
+            return RedirectToAction("Index");
+        }
         // GET: Outgoing/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -179,17 +188,15 @@ namespace Pharmacy_Project.Controllers
         {
             return (_context.Outgoings?.Any(e => e.Id == id)).GetValueOrDefault();
         }
-
-        public IActionResult OutgoingAvailability(DateTime? selectedDateStart, DateTime? selectedDateEnd)
+        public IQueryable<Outgoing> OutgoingAvailability(IQueryable<Outgoing> medicineAvailability, DateTime? selectedDateStart, DateTime? selectedDateEnd)
         {
             // Если дата не указана, используем текущую дату
-            DateTime currentDate = selectedDateStart ?? DateTime.Now;
 
-            var medicineAvailability = _context.Outgoings
+            medicineAvailability = medicineAvailability
                 .Include(m => m.Medicine)
-                .Where(q => (q.ImplementationDate >= selectedDateStart && q.ImplementationDate <= selectedDateEnd));
+                .Where(q => (q.ImplementationDate >= selectedDateStart && q.ImplementationDate <= selectedDateEnd) || (selectedDateStart == null && selectedDateEnd == null));
 
-            return View(medicineAvailability);
+            return medicineAvailability;
         }
     }
 }

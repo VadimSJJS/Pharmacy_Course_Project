@@ -97,7 +97,7 @@ namespace Pharmacy_Project.Controllers
 
             return View(medicine);
         }
-
+        //![Authorize(role="admin")]
         // GET: Medicine/Create
         public IActionResult Create()
         {
